@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "artifact_bucket" {
-  bucket = "remix-agent-${data.aws_caller_identity.current.account_id}"
+  bucket = "remix-agent-aws-dev-challenge"
 }
 
 resource "aws_s3_bucket_public_access_block" "artifact_bucket_block" {
@@ -9,8 +9,6 @@ resource "aws_s3_bucket_public_access_block" "artifact_bucket_block" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
-data "aws_caller_identity" "current" {}
 
 resource "aws_dynamodb_table" "index_table" {
   name         = "RemixCompendiumIndex"

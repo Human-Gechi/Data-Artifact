@@ -18,10 +18,10 @@ MODEL_ID = "amazon.nova-lite-v1:0"
 FALLBACK_MODEL_ID = "amazon.nova-micro-v1:0"
 MANIFEST_KEY = "manifest.json"
 
-_botos_config = Config(region_name=AWS_REGION, retries={"max_attempts": 3, "mode": "adaptive"})
+_boto3_config = Config(region_name=AWS_REGION, retries={"max_attempts": 3, "mode": "adaptive"})
 
-bedrock_rt = boto3.client("bedrock-runtime", config=_botos_config)
-s3 = boto3.client("s3", config=_botos_config)
+bedrock_rt = boto3.client("bedrock-runtime", config=_boto3_config)
+s3 = boto3.client("s3", config=_boto3_config)
 
 with open(os.path.join(os.path.dirname(__file__), "content_library.json")) as f:
     LIBRARY = json.load(f)
@@ -51,7 +51,7 @@ def generate_story(myth, trivia):
     except ClientError as err:
         code = err.response.get("Error", {}).get("Code", "")
         logger.warning(f"Main Model failed {code}; falling to fallback model {FALLBACK_MODEL_ID}")
-        if code in ("ThrottlingException", "ModelTimeoutException", "ServiceUnavailableException"):
+        if code in ("ThrottlingException", "ModelTimeoutException", "ServiceUnavailableException", "InternalServerException"):
             return invoke_nova(prompt, FALLBACK_MODEL_ID)
         raise
 
@@ -81,11 +81,6 @@ def update_manifest(entry):
         manifest = json.loads(existing_obj["Body"].read())
     except s3.exceptions.NoSuchKey:
         manifest = []
-    except ClientError as err:
-        if err.response.get("Error", {}).get("Code") == "NoSuchKey":
-            manifest = []
-        else:
-            raise
  
     manifest.append(entry)
  
@@ -93,7 +88,7 @@ def update_manifest(entry):
         Bucket=BUCKET_NAME,
         Key=MANIFEST_KEY,
         Body=json.dumps(manifest, indent=2).encode("utf-8"),
-        ContentType="application/json",
+        ContentType="application/json"
     )
     logger.info("manifest.json updated (%d total entries)", len(manifest))
  
@@ -108,14 +103,14 @@ def save_artifact(myth, trivia, story_text):
     )
     s3.put_object(
         Bucket=BUCKET_NAME, Key=key, Body=body.encode("utf-8"),
-        ContentType="text/markdown; charset=utf-8",
+        ContentType="text/markdown; charset=utf-8"
     )
  
     update_manifest({
         "date": today,
         "key": key,
         "myth": myth["title"],
-        "trivia": trivia["title"],
+        "trivia": trivia["title"]
     })
  
     return key

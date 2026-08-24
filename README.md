@@ -70,7 +70,7 @@ There's no database, no application server, and no user accounts. The Lambda wri
 1. EventBridge Scheduler invokes the Lambda function on a fixed schedule.
 2. Lambda picks one random myth and one random tech concept from content_library.json.
 3. Lambda builds a prompt and calls Bedrock (Converse API) with Amazon Nova Lite.
-   - If Nova Lite throttles, times out, or is unavailable, it retries once with Nova Micro.
+   - If Nova Lite throttles, times out, or is unavailable, it retries thrice with Nova Micro.
 4. Bedrock returns a 100-300 word story ending in a "Moral for Engineers".
 5. Lambda writes the story as a markdown file to S3, under compendium/.
 6. Lambda reads manifest.json from S3, appends the new entry, writes it back.

@@ -1,4 +1,5 @@
 # MythForge
+<img width="1906" height="239" alt="image" src="https://github.com/user-attachments/assets/ead4fcf1-edb1-4ad8-88e4-c7b244315102" />
 
 **A daily fable that pairs a myth with a software engineering concept — written by AWS Nova Models, stored in S3, served over CloudFront.**
 
@@ -69,8 +70,8 @@ There's no database, no application server, and no user accounts. The Lambda wri
 ```
 1. EventBridge Scheduler invokes the Lambda function on a fixed schedule.
 2. Lambda picks one random myth and one random tech concept from content_library.json.
-3. Lambda builds a prompt and calls Bedrock (Converse API) with Amazon Nova Lite.
-   - If Nova Lite throttles, times out, or is unavailable, it retries thrice with Nova Micro.
+3. Lambda builds a prompt and calls Bedrock once (Converse API) with Amazon Nova Lite.
+   - If Nova Lite throttles, times out, or is unavailable, it retries twice with Nova Micro.
 4. Bedrock returns a 100-300 word story ending in a "Moral for Engineers".
 5. Lambda writes the story as a markdown file to S3, under compendium/.
 6. Lambda reads manifest.json from S3, appends the new entry, writes it back.

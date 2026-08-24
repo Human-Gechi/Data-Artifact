@@ -18,7 +18,7 @@ MODEL_ID = "amazon.nova-lite-v1:0"
 FALLBACK_MODEL_ID = "amazon.nova-micro-v1:0"
 MANIFEST_KEY = "manifest.json"
 
-_botos_config = Config(region_name=AWS_REGION, retries={"max_attempts": 1, "mode": "adaptive"})
+_botos_config = Config(region_name=AWS_REGION, retries={"max_attempts": 3, "mode": "adaptive"})
 
 bedrock_rt = boto3.client("bedrock-runtime", config=_botos_config)
 s3 = boto3.client("s3", config=_botos_config)

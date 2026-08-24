@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Artifact & Myth Compendium</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231b1625'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='%23b298e7'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+  :root {
+    --bg: #1b1625;
+    --card-bg: #241d33;
+    --ink: #f3eef9;
+    --muted: #a89bc4;
+    --purple: #b298e7;
+    --purple-text: #c7b3f0;
+    --teal: #b8e3e9;
+    --teal-text: #8fd4dc;
+    --pink: #f5b8d5;
+    --pink-text: #f0a0c5;
+    --lightpink: #f9bedd;
+    --border: #382c4d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  header {
+    margin-bottom: 44px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink-text);
+    margin-bottom: 10px;
+  }
+  .eyebrow::before {
+    content: "✦ ";
+    color: var(--purple);
+  }
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px 0;
+    color: var(--purple-text);
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0;
+    max-width: 46ch;
+  }
+  .artifact {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 28px;
+    margin-bottom: 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+  .artifact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--purple);
+  }
+  .artifact:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    border-color: var(--purple);
+  }
+  .artifact h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--pink-text);
+    margin: 4px 0 12px 0;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+  }
+  .tag.myth {
+    background: rgba(184, 227, 233, 0.12);
+    color: var(--teal-text);
+    border-color: rgba(184, 227, 233, 0.3);
+  }
+  .tag.trivia {
+    background: rgba(245, 184, 213, 0.12);
+    color: var(--pink-text);
+    border-color: rgba(245, 184, 213, 0.3);
+  }
+  .story {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #e8e0f0;
+  }
+  .story h1 {
+    font-size: 17px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: var(--purple-text);
+    margin: 0 0 14px 0;
+  }
+  .story em {
+    font-style: italic;
+    color: var(--muted);
+  }
+  .story hr {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 18px 0;
+  }
+  .story p {
+    margin: 0 0 14px 0;
+  }
+  .story .moral {
+    display: block;
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: rgba(178, 152, 231, 0.08);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--purple-text);
+  }
+  #status {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+  }
+  footer {
+    margin-top: 44px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+    text-align: center;
+  }
+  footer a {
+    color: var(--purple-text);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  .social-icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .social-icons a {
+    display: inline-flex;
+    color: var(--muted);
+    transition: color 0.15s ease;
+  }
+  .social-icons a:hover {
+    color: var(--purple-text);
+  }
+  .social-icons svg {
+    width: 18px;
+    height: 18px;
+  }
+  @media (max-width: 480px) {
+    .artifact { padding: 20px 20px; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Generated daily · Amazon Nova</div>
+  <h1>Data Artifact &amp; Myth Compendium</h1>
+  <p class="subtitle">A daily fable pairing myth with tech concepts — one story a day, written by AI, archived on Amazon s3, forever.</p>
+</header>
+
+<p id="status">Loading artifacts...</p>
+<div id="artifacts"></div>
+
+<footer> Generated automatically by a serverless agent on AWS Lambda + Bedrock.</footer>
+<footer>
+  Built with love by Human-Gechi
+  <span class="social-icons">
+    <a href="https://github.com/Human-Gechi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/ogechukwu-okoli-154684325" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </span>
+</footer>
+
+<script>
+  const BASE_URL = "https://cloud_domain.com";
+  const MANIFEST_URL = BASE_URL + "/manifest.json";
+
+  async function loadCompendium() {
+    const statusEl = document.getElementById("status");
+    const container = document.getElementById("artifacts");
+
+    try {
+      const res = await fetch(MANIFEST_URL);
+      if (!res.ok) throw new Error("Could not load manifest.json");
+      let entries = await res.json(); 
+
+      if (!entries || entries.length === 0) {
+        statusEl.textContent = "No artifacts yet. Check back tomorrow.";
+        return;
+      }
+
+      entries.sort((a, b) => b.date.localeCompare(a.date));
+
+      const seenDates = new Set();
+      entries = entries.filter((entry) => {
+        if (seenDates.has(entry.date)) return false;
+        seenDates.add(entry.date);
+        return true;
+      });
+
+      for (const entry of entries) {
+        const mdRes = await fetch(BASE_URL + "/" + entry.key);
+        const mdText = await mdRes.text();
+
+        const card = document.createElement("div");
+        card.className = "artifact";
+        card.innerHTML =
+          "<h2>" + entry.date + "</h2>" +
+          "<div class='meta'>" +
+            "<span class='tag myth'>" + entry.myth + "</span>" +
+            "<span class='tag trivia'>" + entry.trivia + "</span>" +
+          "</div>" +
+          "<div class='story'>" + formatStory(mdText) + "</div>";
+        container.appendChild(card);
+      }
+
+      statusEl.remove();
+    } catch (err) {
+      statusEl.textContent = "Error loading artifacts: " + err.message;
+    }
+  }
+
+  function formatStory(text) {
+
+    const html = marked.parse(text);
+    return html.replace(
+      /(Moral for Engineers:.*?)(<\/p>|$)/,
+      "<span class='moral'>$1</span>$2"
+    );
+  }
+
+  loadCompendium();
+</script>
+
+</body>
+</html>

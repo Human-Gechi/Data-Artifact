@@ -1,0 +1,306 @@
+{
+  "myths": [
+    {
+      "id": "icarus",
+      "title": "Icarus and the Sun",
+      "summary": "A son ignores his father's warning and flies too close to the sun on wax wings."
+    },
+    {
+      "id": "prometheus",
+      "title": "Prometheus Steals Fire",
+      "summary": "A titan steals fire from the gods and gives it to humanity, and pays a steep price."
+    },
+    {
+      "id": "sisyphus",
+      "title": "Sisyphus and the Boulder",
+      "summary": "A king is condemned to push a boulder uphill for eternity, watching it roll back each time."
+    },
+    {
+      "id": "pandora",
+      "title": "Pandora's Box",
+      "summary": "Curiosity leads to a container of the world's ills being opened despite a warning."
+    },
+    {
+      "id": "trojan_horse",
+      "title": "The Trojan Horse",
+      "summary": "A gift conceals an army; trust in appearances leads to a city's downfall."
+    },
+    {
+      "id": "midas",
+      "title": "King Midas's Golden Touch",
+      "summary": "A king is granted a wish that turns everything he touches to gold, including what he loves."
+    },
+    {
+      "id": "theseus_labyrinth",
+      "title": "Theseus and the Labyrinth",
+      "summary": "A hero navigates a monster-filled maze using a single thread to find his way back out."
+    },
+    {
+      "id": "phoenix",
+      "title": "The Phoenix",
+      "summary": "A mythical bird periodically dies in flame and is reborn from its own ashes."
+    },
+    {
+      "id": "orpheus_eurydice",
+      "title": "Orpheus and Eurydice",
+      "summary": "A musician is allowed to lead his love out of the underworld on one condition -- don't look back -- and looks back too soon."
+    },
+    {
+      "id": "achilles_heel",
+      "title": "Achilles' Heel",
+      "summary": "A warrior made invulnerable everywhere except the one spot his mother held him by, which is exactly where he is struck."
+    },
+    {
+      "id": "narcissus",
+      "title": "Narcissus and His Reflection",
+      "summary": "A beautiful youth falls hopelessly in love with his own reflection in a pool and cannot look away."
+    },
+    {
+      "id": "persephone",
+      "title": "Persephone and the Pomegranate",
+      "summary": "Eating a few seeds from the underworld binds a goddess to return there every year, creating the seasons."
+    },
+    {
+      "id": "atlas",
+      "title": "Atlas Holding Up the Sky",
+      "summary": "A titan is condemned to bear the weight of the heavens on his shoulders forever as punishment."
+    },
+    {
+      "id": "cassandra",
+      "title": "Cassandra's Curse",
+      "summary": "A prophet is granted the gift of true prophecy and the curse that no one will ever believe her."
+    },
+    {
+      "id": "daedalus",
+      "title": "Daedalus and the Labyrinth",
+      "summary": "A brilliant craftsman builds a maze so effective that even he becomes trapped by his own creation."
+    },
+    {
+      "id": "sirens_odysseus",
+      "title": "Odysseus and the Sirens",
+      "summary": "A captain has himself bound to the mast so he can hear a deadly, irresistible song without steering his ship into the rocks."
+    },
+    {
+      "id": "tantalus",
+      "title": "Tantalus's Eternal Hunger",
+      "summary": "A king is punished by standing in water beneath fruit he can never quite reach, forever almost satisfied."
+    },
+    {
+      "id": "medusa",
+      "title": "Medusa's Gaze",
+      "summary": "A gorgon's stare turns any onlooker instantly to stone, so she is only ever defeated by someone who refuses to look directly at her."
+    },
+    {
+      "id": "arachne",
+      "title": "Arachne the Weaver",
+      "summary": "A weaver so proud of her skill that she challenges a goddess to a contest, and is transformed into a spider for her hubris."
+    },
+    {
+      "id": "hydra",
+      "title": "Hercules and the Hydra",
+      "summary": "A hero fights a serpent where cutting off one head causes two more to grow back in its place."
+    },
+    {
+      "id": "augean_stables",
+      "title": "The Augean Stables",
+      "summary": "A hero is given an impossibly filthy, decades-old task and solves it not with brute force but by rerouting two entire rivers."
+    },
+    {
+      "id": "loki_bound",
+      "title": "Loki Bound",
+      "summary": "A trickster god's endless schemes finally catch up with him, and he is chained in place as punishment for one deception too many."
+    },
+    {
+      "id": "ragnarok",
+      "title": "Ragnarok",
+      "summary": "A foretold, inevitable end of the world arrives exactly as prophesied, and from its ruin a new world eventually rises."
+    },
+    {
+      "id": "odins_eye",
+      "title": "Odin's Eye for Wisdom",
+      "summary": "A god trades one of his own eyes for a single drink from the well of all knowledge and wisdom."
+    },
+    {
+      "id": "osiris",
+      "title": "Osiris Dismembered and Restored",
+      "summary": "A god is torn into pieces scattered across the land, then painstakingly gathered and reassembled to be made whole again."
+    },
+    {
+      "id": "yu_the_great",
+      "title": "Yu the Great Tames the Flood",
+      "summary": "Where his father failed by building walls to block a great flood, a son succeeds by patiently carving channels to guide the water instead."
+    },
+    {
+      "id": "ouroboros",
+      "title": "The Ouroboros",
+      "summary": "A serpent eternally consumes its own tail, forming an endless, self-sustaining, self-referential cycle."
+    },
+    {
+      "id": "procrustes",
+      "title": "Procrustes' Bed",
+      "summary": "A host forces every traveler to fit one exact bed, stretching the short and cutting down the tall until they match."
+    },
+    {
+      "id": "gordian_knot",
+      "title": "The Gordian Knot",
+      "summary": "An impossibly tangled knot that no one can untie is finally undone -- by simply cutting straight through it."
+    },
+    {
+      "id": "damocles_sword",
+      "title": "The Sword of Damocles",
+      "summary": "A guest is seated beneath a sword hanging by a single thread, meant to show how fragile comfort is at the top."
+    }
+  ],
+  "tech_trivia": [
+    {
+      "id": "yes_command",
+      "title": "The `yes` command",
+      "detail": "A Unix utility whose only job is to print 'y' forever until killed \u2014 used to auto-confirm prompts."
+    },
+    {
+      "id": "byzantine_fault",
+      "title": "Byzantine Generals Problem",
+      "detail": "A distributed-systems thought experiment about reaching consensus when some nodes may lie."
+    },
+    {
+      "id": "y2k",
+      "title": "The Year 2000 Problem",
+      "detail": "Two-digit year storage meant systems risked treating 2000 as 1900."
+    },
+    {
+      "id": "core_dump",
+      "title": "Core dumps",
+      "detail": "Named after magnetic core memory; a crashed process's memory snapshot written to disk."
+    },
+    {
+      "id": "cap_theorem",
+      "title": "The CAP Theorem",
+      "detail": "A distributed database can only guarantee two of Consistency, Availability, Partition tolerance."
+    },
+    {
+      "id": "bit_rot",
+      "title": "Bit rot",
+      "detail": "The gradual, unintended corruption of stored data over time due to physical media decay or neglect."
+    },
+    {
+      "id": "thundering_herd",
+      "title": "Thundering herd problem",
+      "detail": "Many processes wake and compete for a single resource at once, overwhelming the system that just freed it."
+    },
+    {
+      "id": "cache_invalidation",
+      "title": "Cache invalidation",
+      "detail": "Famously one of the two hardest problems in computer science: knowing when cached data is stale."
+    },
+    {
+      "id": "race_condition",
+      "title": "Race condition",
+      "detail": "A bug where the outcome depends on the unpredictable timing of two processes, so it can pass a hundred tests and fail on the hundred-and-first."
+    },
+    {
+      "id": "dining_philosophers",
+      "title": "The Dining Philosophers Problem",
+      "detail": "A classic illustration of deadlock: five philosophers, five forks, and every philosopher waiting on a neighbor who is also waiting."
+    },
+    {
+      "id": "rubber_duck_debugging",
+      "title": "Rubber duck debugging",
+      "detail": "The practice of explaining your code line by line to an inanimate object -- often a rubber duck -- until the bug becomes obvious to you."
+    },
+    {
+      "id": "heisenbug",
+      "title": "Heisenbug",
+      "detail": "A bug that seems to change or vanish the moment you try to observe or debug it -- named as a nod to the Heisenberg uncertainty principle."
+    },
+    {
+      "id": "off_by_one",
+      "title": "Off-by-one error",
+      "detail": "One of the most common bugs in programming: a loop or index that runs one time too many, or one time too few."
+    },
+    {
+      "id": "memory_leak",
+      "title": "Memory leak",
+      "detail": "Memory that a program allocates but never releases, slowly starving the system of resources the longer the program runs."
+    },
+    {
+      "id": "null_pointer",
+      "title": "The null reference",
+      "detail": "Called 'my billion-dollar mistake' by its own inventor, Tony Hoare, for the sheer number of crashes it has caused since 1965."
+    },
+    {
+      "id": "spaghetti_code",
+      "title": "Spaghetti code",
+      "detail": "Code with so many tangled, criss-crossing paths of logic that following any single thread through it is nearly impossible."
+    },
+    {
+      "id": "cosmic_ray_bit_flip",
+      "title": "Cosmic ray bit flips",
+      "detail": "A high-energy particle from space can occasionally strike a memory chip and flip a single bit, causing an error with no software cause at all."
+    },
+    {
+      "id": "cold_start",
+      "title": "Cold start latency",
+      "detail": "The extra delay a serverless function incurs the first time it runs after being idle, before its environment is warmed up."
+    },
+    {
+      "id": "two_generals_problem",
+      "title": "The Two Generals Problem",
+      "detail": "A proof that two parties can never be perfectly certain they agree on a plan when their only communication channel might lose messages."
+    },
+    {
+      "id": "conways_law",
+      "title": "Conway's Law",
+      "detail": "Organizations design systems that mirror their own communication structure -- the org chart quietly becomes the architecture diagram."
+    },
+    {
+      "id": "brooks_law",
+      "title": "Brooks's Law",
+      "detail": "Adding more people to an already-late software project tends to make it later still, not faster."
+    },
+    {
+      "id": "ninety_ninety_rule",
+      "title": "The Ninety-Ninety Rule",
+      "detail": "The first 90% of a project takes 90% of the time, and the remaining 10% takes the other 90% of the time."
+    },
+    {
+      "id": "tech_debt",
+      "title": "Technical debt",
+      "detail": "A shortcut taken now to ship faster, which quietly accrues interest until it eventually has to be paid back with real engineering time."
+    },
+    {
+      "id": "leap_second",
+      "title": "The leap second",
+      "detail": "An occasional extra second inserted into official time to keep clocks aligned with Earth's rotation -- and a recurring source of production outages."
+    },
+    {
+      "id": "deadlock",
+      "title": "Deadlock",
+      "detail": "A state where two or more processes each hold a resource the other needs, and neither can ever proceed."
+    },
+    {
+      "id": "zero_day",
+      "title": "Zero-day vulnerability",
+      "detail": "A security flaw discovered and potentially exploited before the people who could fix it have had a single day to patch it."
+    },
+    {
+      "id": "hash_collision",
+      "title": "Hash collision",
+      "detail": "When two completely different inputs produce the exact same hash output, undermining the assumption that a hash uniquely identifies its data."
+    },
+    {
+      "id": "moores_law",
+      "title": "Moore's Law",
+      "detail": "The observation that the number of transistors on a chip tends to double roughly every two years, driving decades of exponential hardware progress."
+    },
+    {
+      "id": "dead_code",
+      "title": "Dead code",
+      "detail": "Code that still exists in the codebase but can never actually be reached or executed by any path the program takes."
+    },
+    {
+      "id": "magic_number",
+      "title": "Magic number",
+      "detail": "An unexplained numeric literal buried directly in code, with no name or comment to tell future readers what it actually means."
+    }
+  ]
+}

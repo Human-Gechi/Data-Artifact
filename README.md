@@ -1,6 +1,6 @@
 # MythForge
 
-**A daily fable that pairs a myth with a software engineering concept — written by an LLM, stored in S3, served over CloudFront.**
+**A daily fable that pairs a myth with a software engineering concept — written by AWS Nova Models, stored in S3, served over CloudFront.**
 
 Every morning, a scheduled job picks one myth and one technical idea at random, asks Amazon Bedrock to weave them into a short story, and publishes the result as a static markdown file. A small frontend reads the growing archive and renders each entry as a card, complete with a "Moral for Engineers" at the end.
 

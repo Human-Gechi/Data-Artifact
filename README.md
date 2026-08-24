@@ -223,8 +223,16 @@ pip install -r requirements.txt
 
 From the repository root:
 
+Bash
+
 ```bash
 zip lambda.zip lambda.py content_library.json
+```
+
+Powershell
+
+```powershell
+Compress-Archive -Path lambda.py, content_library.json -DestinationPath lambda.zip
 ```
 
 This has to produce `lambda.zip` one level above `infra/`, since `main.tf` references `"${path.module}/../lambda.zip"`.

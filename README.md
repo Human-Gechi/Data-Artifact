@@ -62,6 +62,7 @@ There's no database, no application server, and no user accounts. The Lambda wri
 | AWS IAM | Scopes exactly what the Lambda and the Scheduler are each allowed to do |
 | Terraform | Defines and provisions every AWS resource in the project |
 | HTML, CSS, vanilla JavaScript | The frontend itself — no framework, no build step |
+| marked.js (loaded from a CDN) | Parses each story's markdown into HTML in the browser |
 
 ## How a run works
 
@@ -163,6 +164,9 @@ The visual style is a dark, purple-led palette (background `#1b1625`, accent `#b
 
 ```
 .
+├── requirements.txt
+├── LICENSE
+├── .gitignore
 ├── README.md
 ├── lambda.py                 # Handler + Bedrock calls + S3 writes
 ├── content_library.json      # Myths and tech concepts (bundled into the Lambda zip)
@@ -213,6 +217,10 @@ The bucket itself has no public access, no ACLs, and no policy allowing any prin
 
 **1. Package the Lambda**
 
+```bash
+pip install -r requirements.txt
+```
+
 From the repository root:
 
 ```bash
@@ -260,7 +268,7 @@ Worth knowing before relying on this for anything beyond a personal project:
 
 ## Challenges encountered
 
-**Model access is regional, and it isn't automatic.** Bedrock model access has to be explicitly granted per region before `InvokeModel`/`Converse` will work. The first model tried was actually Amazon Nova 2, which wasn't available in `eu-north-1` at the time — that's what pushed this project onto Nova Lite and Nova Micro (the v1 generation) instead, since those were the models actually enabled for this account in this region. The failure itself surfaced as an `AccessDeniedException` with no obvious hint that the fix was a model-access request in the console rather than an IAM change — the IAM policy was already correct.
+**Model access is regional, and it isn't automatic.** Bedrock model access has to be explicitly granted per region before `InvokeModel`/`Converse` will work. The first model tried was actually Amazon Nova 2, which wasn't available in `eu-north-1` at the time — that's what pushed this project onto Nova Lite and Nova Micro (the v1 generation) instead, since those were the models actually enabled for this account in this region. 
 
 **Deciding which errors deserve a fallback.** `generate_story()` only retries with Nova Micro for `ThrottlingException`, `ModelTimeoutException`, and `ServiceUnavailableException`. Early versions caught every `ClientError` and fell back unconditionally, which meant a genuine permissions problem or a bad request would silently retry against a second model and fail the same way twice, doubling the time to a useful error message in CloudWatch. Narrowing the except clause to specific error codes fixed that.
 

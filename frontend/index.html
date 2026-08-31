@@ -213,7 +213,7 @@
   <p class="subtitle">A daily fable, pairing myth with tech concepts — one story a day, written by AI, archived on Amazon s3, forever.</p>
 </header>
 
-<p id="status">Loading artifacts...</p>
+<p id="status">Loading artifact...</p>
 <div id="artifacts"></div>
 
 <footer> Generated automatically by a serverless agent on AWS Lambda + Bedrock.</footer>
@@ -240,7 +240,7 @@
     try {
       const res = await fetch(MANIFEST_URL);
       if (!res.ok) throw new Error("Could not load manifest.json");
-      let entries = await res.json(); 
+      let entries = await res.json();
 
       if (!entries || entries.length === 0) {
         statusEl.textContent = "No artifacts yet. Check back tomorrow.";
@@ -249,37 +249,29 @@
 
       entries.sort((a, b) => b.date.localeCompare(a.date));
 
-      const seenDates = new Set();
-      entries = entries.filter((entry) => {
-        if (seenDates.has(entry.date)) return false;
-        seenDates.add(entry.date);
-        return true;
-      });
+      const entry = entries[0];
 
-      for (const entry of entries) {
-        const mdRes = await fetch(BASE_URL + "/" + entry.key);
-        const mdText = await mdRes.text();
+      const mdRes = await fetch(BASE_URL + "/" + entry.key);
+      const mdText = await mdRes.text();
 
-        const card = document.createElement("div");
-        card.className = "artifact";
-        card.innerHTML =
-          "<h2>" + entry.date + "</h2>" +
-          "<div class='meta'>" +
-            "<span class='tag myth'>" + entry.myth + "</span>" +
-            "<span class='tag trivia'>" + entry.trivia + "</span>" +
-          "</div>" +
-          "<div class='story'>" + formatStory(mdText) + "</div>";
-        container.appendChild(card);
-      }
+      const card = document.createElement("div");
+      card.className = "artifact";
+      card.innerHTML =
+        "<h2>" + entry.date + "</h2>" +
+        "<div class='meta'>" +
+          "<span class='tag myth'>" + entry.myth + "</span>" +
+          "<span class='tag trivia'>" + entry.trivia + "</span>" +
+        "</div>" +
+        "<div class='story'>" + formatStory(mdText) + "</div>";
+      container.appendChild(card);
 
       statusEl.remove();
     } catch (err) {
-      statusEl.textContent = "Error loading artifacts: " + err.message;
+      statusEl.textContent = "Error loading artifact: " + err.message;
     }
   }
 
   function formatStory(text) {
-
     const html = marked.parse(text);
     return html.replace(
       /(Moral for Engineers:.*?)(<\/p>|$)/,
